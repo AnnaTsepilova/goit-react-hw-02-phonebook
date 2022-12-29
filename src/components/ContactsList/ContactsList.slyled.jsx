@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-export const StatisticsList = styled.ul`
+export const ContactsListContainer = styled.ul`
+  list-style-type: disc;
   padding-bottom: ${props => props.theme.space[6]}px;
 `;
 
-export const StatisticsItem = styled.li`
-  display: flex;
+export const ContactsItem = styled.li`
+  margin-left: 20px;
 `;
 
 export const Text = styled.p`
@@ -13,5 +14,3 @@ export const Text = styled.p`
   margin-bottom: ${props => props.theme.space[5]}px;
   font-size: 20px;
 `;
-
-export const CounterValue = styled(Text)``;

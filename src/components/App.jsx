@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
-import {
-  PhonebookContainer,
-  FormWrapper,
-  Title,
-  Text,
-  ContactInput,
-  Button,
-} from './App.styled';
+import { PhonebookContainer, Title } from './App.styled';
 
 import Section from 'components/Section/Section';
+import Form from 'components/Form/Form';
+import ContactsList from 'components/ContactsList/ContactsList';
 
 class App extends Component {
   static defaultProps = {};
@@ -24,56 +19,27 @@ class App extends Component {
   state = {
     contacts: [],
     name: '',
+    number: '',
   };
 
-  handleInputChange = event => {
-    this.setState({ name: event.currentTarget.value });
+  formSubmitHandker = data => {
+    let id = nanoid();
+    let contact = { id: id, name: data.name, number: data.number };
+    console.log(data);
+    console.log(this.state.contacts);
+
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, contact],
+    }));
   };
-  // countTotalFeedback = () => {
-  //   const total = Object.values(this.state).reduce((acc, number) => {
-  //     return acc + number;
-  //   }, 0);
-  //   return total;
-  // };
-
-  // countPositiveFeedbackPercentage = () => {
-  //   const total = this.countTotalFeedback();
-  //   if (total === 0) {
-  //     return 0;
-  //   }
-  //   const positiveFeedbackPercentage = Math.round(
-  //     (this.state.good * 100) / total
-  //   );
-  //   return positiveFeedbackPercentage;
-  // };
-
-  // onLeaveFeedback = option => {
-  //   this.setState(prevState => {
-  //     const value = prevState[option];
-  //     return {
-  //       [option]: value + 1,
-  //     };
-  //   });
-  // };
 
   render() {
     return (
       <PhonebookContainer>
         <Title>Phonebook</Title>
-        <FormWrapper>
-          <Text>Name</Text>
-          <ContactInput
-            type="text"
-            name="name"
-            pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            value={this.state.name}
-            onChange={this.handleInputChange}
-          />
-          <Button type="button">Add contact</Button>
-        </FormWrapper>
+        <Form onSubmit={this.formSubmitHandker} />
         <Section title="Contacts"></Section>
+        <ContactsList contacts={this.state.contacts} />
       </PhonebookContainer>
     );
   }
