@@ -52,11 +52,8 @@ export const ContactInput = styled.input`
 `;
 
 export const Button = styled.button`
-  min-width: 100px;
+  min-width: 120px;
   height: 40px;
-
-  margin-left: auto;
-  margin-right: auto;
 
   text-align: center;
   border-radius: 4px;
@@ -65,9 +62,8 @@ export const Button = styled.button`
   background-color: ${props => props.theme.colors.accentColor};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
-  text-transform: capitalize;
 
   cursor: pointer;
   outline: rgba(0, 0, 0, 0);

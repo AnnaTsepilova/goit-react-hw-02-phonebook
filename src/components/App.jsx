@@ -26,6 +26,9 @@ class App extends Component {
     name: '',
   };
 
+  handleInputChange = event => {
+    this.setState({ name: event.currentTarget.value });
+  };
   // countTotalFeedback = () => {
   //   const total = Object.values(this.state).reduce((acc, number) => {
   //     return acc + number;
@@ -65,6 +68,8 @@ class App extends Component {
             pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
+            value={this.state.name}
+            onChange={this.handleInputChange}
           />
           <Button type="button">Add contact</Button>
         </FormWrapper>
