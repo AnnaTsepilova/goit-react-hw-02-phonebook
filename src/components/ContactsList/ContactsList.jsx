@@ -8,15 +8,19 @@ import {
 export default function ContactsList({ contacts }) {
   return (
     <ContactsListContainer>
-      {contacts.map(contact => {
-        return (
-          <ContactsItem key={contact.id}>
-            <Text>
-              {contact.name}: {contact.number}
-            </Text>
-          </ContactsItem>
-        );
-      })}
+      {contacts.length ? (
+        contacts.map(contact => {
+          return (
+            <ContactsItem key={contact.id}>
+              <Text>
+                {contact.name}: {contact.number}
+              </Text>
+            </ContactsItem>
+          );
+        })
+      ) : (
+        <Text>There is no contact in your phonebook</Text>
+      )}
     </ContactsListContainer>
   );
 }

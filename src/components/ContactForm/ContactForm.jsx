@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-import { FormContainer, Label, ContactInput, Button } from './Form.styled';
+import {
+  FormContainer,
+  Label,
+  ContactInput,
+  Button,
+} from 'components/ContactForm/ContactForm.styled';
 
-class Form extends Component {
+class ContactForm extends Component {
   static defaultProps = {};
 
   static propTypes = {
@@ -67,4 +72,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default ContactForm;
