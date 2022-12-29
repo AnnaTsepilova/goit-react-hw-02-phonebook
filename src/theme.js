@@ -6,6 +6,7 @@ export const theme = {
     borderColor: '#e2e8ef',
     background: '#fff',
     backgroundSecondary: '#f2f6fa',
+    accentColor: '#2196F3',
   },
 
   space: [0, 2, 4, 6, 8, 16, 32, 64, 128, 256],
