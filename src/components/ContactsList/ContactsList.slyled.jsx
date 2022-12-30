@@ -13,6 +13,7 @@ export const ContactsItem = styled.li`
 `;
 
 export const Text = styled.span`
+  display: block;
   margin-right: ${props => props.theme.space[5]}px;
   margin-bottom: ${props => props.theme.space[5]}px;
   font-size: 20px;
