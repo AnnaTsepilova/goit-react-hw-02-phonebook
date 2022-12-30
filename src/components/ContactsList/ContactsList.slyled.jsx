@@ -6,10 +6,17 @@ export const ContactsListContainer = styled.ul`
 `;
 
 export const ContactsItem = styled.li`
+  /* display: flex;
+  justify-content: space-between; */
+  width: 100%;
+  margin-right: ${props => props.theme.space[5]}px;
+  margin-bottom: 20px;
   margin-left: 20px;
+  align-items: center;
 `;
 
-export const Text = styled.p`
+export const Text = styled.span`
+  margin-right: ${props => props.theme.space[5]}px;
   margin-bottom: ${props => props.theme.space[5]}px;
   font-size: 20px;
 `;

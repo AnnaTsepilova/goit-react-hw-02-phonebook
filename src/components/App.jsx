@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { PhonebookContainer, Title } from './App.styled';
 
@@ -31,6 +32,18 @@ class App extends Component {
     let id = nanoid();
     let contact = { id: id, name: data.name, number: data.number };
 
+    let isContact = this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(data.name.toLowerCase())
+    );
+    console.log(isContact);
+    if (isContact.length) {
+      Notify.warning(`${data.name} is already in contacts`, {
+        background: '#eebf31',
+        fontSize: '16px',
+        width: '350px',
+      });
+      return;
+    }
     this.setState(prevState => ({
       contacts: [...prevState.contacts, contact],
     }));
@@ -49,6 +62,18 @@ class App extends Component {
     );
   };
 
+  contactDeleteHandler = contactId => {
+    this.setState(
+      ({ contacts }) => ({
+        contacts: contacts.filter(contact => contact.id !== contactId),
+      }),
+      Notify.success('Contact is deleted', {
+        fontSize: '16px',
+        width: '350px',
+      })
+    );
+  };
+
   render() {
     return (
       <PhonebookContainer>
@@ -56,7 +81,10 @@ class App extends Component {
         <ContactForm onSubmit={this.formSubmitHandler} />
         <Section title="Contacts"></Section>
         <Filter filterByName={this.handleFilter} />
-        <ContactsList contacts={this.getContacts()} />
+        <ContactsList
+          contacts={this.getContacts()}
+          onDelete={this.contactDeleteHandler}
+        />
       </PhonebookContainer>
     );
   }

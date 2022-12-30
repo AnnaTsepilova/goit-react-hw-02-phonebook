@@ -25,11 +25,8 @@ export const ContactInput = styled.input`
 
   border: 1px solid #21212133;
   border-radius: 4px;
-
   outline: transparent;
-
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
   color: ${props => props.theme.colors.secondary};
 
   &:focus {
@@ -60,5 +57,18 @@ export const Button = styled.button`
   &:hover {
     background-color: #eef7ff;
     color: ${props => props.theme.colors.accentColor};
+  }
+`;
+
+export const DeleteButton = styled(Button)`
+  min-width: 80px;
+  height: 30px;
+
+  color: ${props => props.theme.colors.background};
+  background-color: #eebf31;
+
+  &:hover {
+    background-color: #eef7ff;
+    color: #eebf31;
   }
 `;

@@ -4,8 +4,9 @@ import {
   ContactsItem,
   Text,
 } from 'components/ContactsList/ContactsList.slyled';
+import { DeleteButton } from 'components/ContactForm/ContactForm.styled';
 
-export default function ContactsList({ contacts }) {
+export default function ContactsList({ contacts, onDelete }) {
   return (
     <ContactsListContainer>
       {contacts.length ? (
@@ -15,6 +16,14 @@ export default function ContactsList({ contacts }) {
               <Text>
                 {contact.name}: {contact.number}
               </Text>
+              <DeleteButton
+                type="button"
+                onClick={() => {
+                  onDelete(contact.id);
+                }}
+              >
+                Delete
+              </DeleteButton>
             </ContactsItem>
           );
         })
