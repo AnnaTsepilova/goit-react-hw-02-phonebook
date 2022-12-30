@@ -19,6 +19,7 @@ export const Label = styled.label`
 
 export const ContactInput = styled.input`
   display: block;
+  margin-top: ${props => props.theme.space[5]}px;
   margin-bottom: ${props => props.theme.space[5]}px;
   padding: ${props => props.theme.space[4]}px;
   font-size: 20px;
