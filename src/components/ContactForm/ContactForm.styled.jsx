@@ -61,8 +61,9 @@ export const Button = styled.button`
 `;
 
 export const DeleteButton = styled(Button)`
-  min-width: 80px;
-  height: 30px;
+  min-width: 70px;
+  height: 25px;
+  font-size: 14px;
 
   color: ${props => props.theme.colors.background};
   background-color: #eebf31;
